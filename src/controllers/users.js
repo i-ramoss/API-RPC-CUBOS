@@ -1,7 +1,18 @@
 const createUserService = require("../services/CreateUserServices")
+const addToLineService = require("../services/AddToLineService")
+const findPositionService = require("../services/FindPositionService")
+const filterLineService = require("../services/FilterLineService")
+const popLineService = require("../services/PopLineService")
 
-let users = []
-let rows = []
+const populateLineService = require("../services/PopulateLineService")
+
+const users = [{
+  "id": "240cb817-86f4-4809-84e9-a6af7458108e",
+  "name": "Flora",
+  "email": "flora@cubos.com",
+  "gender": "female"
+}]
+const rows = []
 
 exports.createUser = (request, response) => {
   const { name, email, gender } = request.body
@@ -12,71 +23,33 @@ exports.createUser = (request, response) => {
 
 exports.addToLine = (request, response) => { 
   const { id } = request.body
-  const existId = rows.some(item => item === id)
-  const existUser = users.some(item => item.id === id)
-
-  if(!existUser) return response.status(400).json({error: "O usuário não foi encontrado!"})
- 
-  if(existId) return response.status(400).json({error: "O usuário já foi cadastrado na fila!"})
-
-  rows.push(id)
-
-  const index = rows.findIndex(item => item === id)
+  const position = addToLineService(rows, users, id)
   
-  return response.json({position: index+1}) 
+  return response.json({ position }) 
 }
 
 exports.findPosition = (request, response) => {
   const { email } = request.params
-  const user = users.find(user => user.email === email)
+  const position = findPositionService(rows, users, email)
 
-  if(!user) return response.status(400).json({error: "O usuário não foi encontrado!"})
-
-  const index = rows.findIndex(item => item === user.id) 
-
-  if (index === -1) return response.status(400).json({error: "O usuário não está cadastrado na fila"})
-
-  return response.json({position: index+1})
+  return response.json({position})
 }
 
 exports.showLine = (request, response) => {
-  const fillRow = rows.map((id, index) => {
-    const { name, gender, email } = users.find(findUser => findUser.id === id)
-      
-    return {
-      name,
-      gender,
-      email,
-      position: index+1
-    }
-  }) 
+  const fillRow = populateLineService(rows, users)
 
   return response.json(fillRow)
 }  
 
 exports.filterLine = (request, response) => {
   const { gender } = request.params
-  const fillRow = rows.map((id, index) => {
-    const { name, gender, email } = users.find(findUser => findUser.id === id)
-
-    return {
-      name,
-      gender,
-      email,
-      position: index+1
-    }
-  })
-
-  const filteredGender = fillRow.filter(user => user.gender === gender.toLowerCase())
+  const filteredGender = filterLineService(rows, users, gender)
   
   return response.json(filteredGender)
 }
 
 exports.popLine = (request, response) => {
-  if (rows.length === 0) return response.json({error: "A fila já está vazia"})
-
-  const removeUserFromRow = rows.shift()
-  const { name, gender, email } = users.find(user => user.id === removeUserFromRow)
+  const del = popLineService(rows, users)
   
-  return response.json({name, gender, email})
+  return response.json(del)
 }

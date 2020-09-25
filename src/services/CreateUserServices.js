@@ -6,7 +6,7 @@ function createUserService(users, { name, email, gender }) {
   const lowerEmail = email.toLowerCase()
   const existEmail = users.some(user => user.email === lowerEmail)
 
-  if (existEmail) throw new Error("Este email já está cadastrado")
+  if (existEmail) throw new Error("Este email já está cadastrado!")
 
   const newUser = {
     id: uuidv4(),

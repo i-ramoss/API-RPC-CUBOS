@@ -45,7 +45,5 @@ describe("CreateUserService", () => {
         expect(error.message).toBe("Preencha todos os campos!")
     }
   })
-
-
 })
 

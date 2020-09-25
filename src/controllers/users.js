@@ -6,12 +6,7 @@ const popLineService = require("../services/PopLineService")
 
 const populateLineService = require("../services/PopulateLineService")
 
-const users = [{
-  "id": "240cb817-86f4-4809-84e9-a6af7458108e",
-  "name": "Flora",
-  "email": "flora@cubos.com",
-  "gender": "female"
-}]
+const users = []
 const rows = []
 
 exports.createUser = (request, response) => {

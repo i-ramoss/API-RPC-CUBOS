@@ -17,6 +17,10 @@ O desafio se refere ao desenvolvimento de uma API RPC para gerenciamento de uma 
 - Tirar da fila: ```baseURL/popLine``` (Método DELETE)
 
 
+## :books: Documentação:
+A documentação da aplicação foi gerada pelo Postman e está disponível nesse [link](https://documenter.getpostman.com/view/12814363/TVKFzvto).
+
+
 ## :construction_worker: Como usar:
 
 Para clonar e executar essa aplicação você vai precisar dos seguintes softwares instalados em seu computador: 

@@ -1,8 +1,8 @@
 # API-RPC-CUBOS
 
-<div align="center">
-  [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e8d418ee169e2dfac74a#?env%5BDevelopment%5D=W3sia2V5IjoiYmFzZVVSTCIsInZhbHVlIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwIiwiZW5hYmxlZCI6dHJ1ZX1d)
-</div>
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e8d418ee169e2dfac74a#?env%5BDevelopment%5D=W3sia2V5IjoiYmFzZVVSTCIsInZhbHVlIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwIiwiZW5hYmxlZCI6dHJ1ZX1d)
+
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=API-RPC%20Cubos&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fi-ramoss%2FAPI-RPC-CUBOS%2Fmaster%2F.github%2Finsomnia_export.json)
 
 ## :interrobang: Sobre:
 O desafio se refere ao desenvolvimento de uma API RPC para gerenciamento de uma fila de pessoas.

@@ -46,4 +46,14 @@ $ npm start
 # A aplicação estará rodando na porta 5000 (http://localhost:5000/)
 ```
 
+## :construction_worker: Como rodar os testes unitários:
+```bash
+# Digite no terminal
+$ npm test
+```
+Para visualizar os testes no browser:
+- Acesse a pasta coverage por um diretório de arquivos
+- Entre na pasta Icov-report
+- Abra o index.html
+
 Feito com :green_heart: por **Ian Ramos** :fire: [Entre em contato!](https://www.linkedin.com/in/ian-ramos/)

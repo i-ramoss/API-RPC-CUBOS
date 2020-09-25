@@ -1,28 +1,11 @@
+const createUserService = require("../services/CreateUserServices")
+
 let users = []
 let rows = []
-let id = 0
 
 exports.createUser = (request, response) => {
-  const usersLength = users.length
   const { name, email, gender } = request.body
-  
-  if (!name || !email || !gender) return response.status(400).json({error: "Preencha todos os campos!"})
- 
-  if (usersLength >= 0) id++
-
-  const lowerEmail = email.toLowerCase()
-  const existEmail = users.some(user => user.email === lowerEmail)
-
-  if (existEmail) return response.status(400).json({error: "Esse email já foi cadastrado!"})
-
-  const newUser = {
-    id,
-    name,
-    email: lowerEmail,
-    gender: gender.toLowerCase()
-  } 
-
-  users.push(newUser)
+  const newUser = createUserService(users, { name, email, gender })
 
   return response.json(newUser)
 } 
@@ -36,7 +19,7 @@ exports.addToLine = (request, response) => {
  
   if(existId) return response.status(400).json({error: "O usuário já foi cadastrado na fila!"})
 
-  rows.push(Number(id))
+  rows.push(id)
 
   const index = rows.findIndex(item => item === id)
   

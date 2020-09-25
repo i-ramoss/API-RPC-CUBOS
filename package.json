@@ -2,7 +2,8 @@
   "name": "API-RPC-CUBOS",
   "main": "src/server.js",
   "scripts": {
-    "start": "nodemon src/server.js"
+    "start": "nodemon src/server.js --ignore __tests__",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -13,9 +14,12 @@
   },
   "homepage": "https://github.com/i-ramoss/API-RPC-CUBOS#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "uuid": "^8.3.0"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.14",
+    "jest": "^26.4.2",
     "nodemon": "^2.0.4"
   }
 }
